@@ -73,6 +73,6 @@ class HeaderConverter implements ConverterInterface, ConfigurationAwareInterface
     {
         $prefix = str_repeat('#', $level) . ' ';
 
-        return $prefix . $content . "\n\n";
+        return "\n\n" . $prefix . $content . "\n\n";
     }
 }

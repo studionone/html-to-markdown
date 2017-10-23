@@ -2,25 +2,10 @@
 
 namespace League\HTMLToMarkdown\Converter;
 
-use League\HTMLToMarkdown\Configuration;
-use League\HTMLToMarkdown\ConfigurationAwareInterface;
 use League\HTMLToMarkdown\ElementInterface;
 
-class ListItemConverter implements ConverterInterface, ConfigurationAwareInterface
+class ListItemConverter implements ConverterInterface
 {
-    /**
-     * @var Configuration
-     */
-    protected $config;
-
-    /**
-     * @param Configuration $config
-     */
-    public function setConfig(Configuration $config)
-    {
-        $this->config = $config;
-    }
-
     /**
      * @param ElementInterface $element
      *
@@ -44,8 +29,7 @@ class ListItemConverter implements ConverterInterface, ConfigurationAwareInterfa
         }
 
         if ($list_type === 'ul') {
-            $list_item_style = $this->config->getOption('list_item_style', '-');
-            return $prefix . $list_item_style . ' ' . $value . "\n";
+            return $prefix . '- ' . $value . "\n";
         }
 
         $number = $element->getSiblingPosition();

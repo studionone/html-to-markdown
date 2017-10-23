@@ -27,7 +27,7 @@ class ParagraphConverter implements ConverterInterface
             $markdown .= "\n";
         }
 
-        return trim($markdown) !== '' ? rtrim($markdown) . "\n\n" : '';
+        return trim($markdown) !== '' ? rtrim($markdown) : '';
     }
 
     /**
